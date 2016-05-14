@@ -1,0 +1,47 @@
+"use strict";
+
+var destination = document.querySelector('#container');
+
+var Hello = React.createClass({
+  displayName: "Hello",
+
+  render: function render() {
+    return React.createElement(
+      "div",
+      null,
+      React.createElement(
+        "h3",
+        null,
+        "Hello, ",
+        this.props.greetTarget,
+        "!"
+      ),
+      this.props.children
+    );
+  }
+});
+
+ReactDOM.render(React.createElement(
+  "div",
+  null,
+  React.createElement(
+    Hello,
+    { greetTarget: "Batman" },
+    React.createElement(
+      "p",
+      null,
+      "It's good to see you!"
+    )
+  ),
+  React.createElement(Hello, { greetTarget: "Iron Man" }),
+  React.createElement(
+    Hello,
+    { greetTarget: "Nicolas Cage" },
+    React.createElement(
+      "small",
+      null,
+      "Snap out of it!"
+    )
+  ),
+  React.createElement(Hello, { greetTarget: "Howard the Duck" })
+), destination);
